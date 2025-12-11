@@ -1,5 +1,5 @@
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
-import Link from "next/link"
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -8,9 +8,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Sobre Nosotros</h3>
+            <h3 className="font-semibold text-foreground mb-4">
+              Sobre Nosotros
+            </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              ManhwaHub es tu comunidad para descubrir, leer y compartir los mejores manhwas.
+              ManhwaHub es tu comunidad para descubrir, leer y compartir los
+              mejores manhwas.
             </p>
           </div>
 
@@ -19,22 +22,34 @@ export function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Enlaces</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Acerca de
                 </Link>
               </li>
               <li>
-                <Link href="/help" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/help"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Centro de Ayuda
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Contacto
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/blog"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Blog
                 </Link>
               </li>
@@ -46,22 +61,34 @@ export function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/terms"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Términos de Servicio
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Política de Privacidad
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/cookies"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Política de Cookies
                 </Link>
               </li>
               <li>
-                <Link href="/guidelines" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/guidelines"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Directrices de la Comunidad
                 </Link>
               </li>
@@ -109,5 +136,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

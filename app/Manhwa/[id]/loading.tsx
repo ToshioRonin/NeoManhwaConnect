@@ -1,6 +1,6 @@
-import { Header } from "@/components/header"
-import { ChatSidebar } from "@/components/chat-sidebar"
-import { Footer } from "@/components/footer"
+import { Header } from "@/components/header";
+import { ChatSidebar } from "@/components/chat-sidebar";
+import { Footer } from "@/components/footer";
 
 export default function Loading() {
   return (
@@ -27,5 +27,5 @@ export default function Loading() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

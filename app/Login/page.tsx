@@ -1,25 +1,32 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Link from "next/link"
-import { BookOpen, Eye, EyeOff } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react";
+import Link from "next/link";
+import { BookOpen, Eye, EyeOff } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Login attempt:", { email, password })
+    e.preventDefault();
+    console.log("Login attempt:", { email, password });
     // Add login logic here
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -28,7 +35,9 @@ export default function LoginPage() {
           <div className="flex items-center justify-center mb-4">
             <BookOpen className="w-10 h-10 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-bold text-center text-foreground">Iniciar Sesión</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center text-foreground">
+            Iniciar Sesión
+          </CardTitle>
           <CardDescription className="text-center text-muted-foreground">
             Ingresa tus credenciales para acceder a tu cuenta
           </CardDescription>
@@ -68,16 +77,26 @@ export default function LoginPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
             <div className="flex items-center justify-between">
-              <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+              <Link
+                href="/forgot-password"
+                className="text-sm text-primary hover:underline"
+              >
                 ¿Olvidaste tu contraseña?
               </Link>
             </div>
-            <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-[#9D77FF]">
+            <Button
+              type="submit"
+              className="w-full bg-primary text-primary-foreground hover:bg-[#9D77FF]"
+            >
               Iniciar Sesión
             </Button>
           </form>
@@ -88,11 +107,16 @@ export default function LoginPage() {
               <span className="w-full border-t border-border" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-card px-2 text-muted-foreground">O continúa con</span>
+              <span className="bg-card px-2 text-muted-foreground">
+                O continúa con
+              </span>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 w-full">
-            <Button variant="outline" className="border-border text-foreground hover:bg-muted bg-transparent">
+            <Button
+              variant="outline"
+              className="border-border text-foreground hover:bg-muted bg-transparent"
+            >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -113,8 +137,15 @@ export default function LoginPage() {
               </svg>
               Google
             </Button>
-            <Button variant="outline" className="border-border text-foreground hover:bg-muted bg-transparent">
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <Button
+              variant="outline"
+              className="border-border text-foreground hover:bg-muted bg-transparent"
+            >
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
               GitHub
@@ -122,12 +153,15 @@ export default function LoginPage() {
           </div>
           <p className="text-sm text-muted-foreground text-center">
             ¿No tienes una cuenta?{" "}
-            <Link href="/register" className="text-primary hover:underline font-semibold">
+            <Link
+              href="/register"
+              className="text-primary hover:underline font-semibold"
+            >
               Regístrate aquí
             </Link>
           </p>
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }

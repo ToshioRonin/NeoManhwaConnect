@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { Header } from "@/components/header"
-import { ChatSidebar } from "@/components/chat-sidebar"
-import { Footer } from "@/components/footer"
-import { ManhwaDetail } from "@/components/manhwa-detail"
+import Link from "next/link";
+import { Header } from "@/components/header";
+import { ChatSidebar } from "@/components/chat-sidebar";
+import { Footer } from "@/components/footer";
+import { ManhwaDetail } from "@/components/manhwa-detail";
 
 // Mock data para los manhwas
 const manhwaData: Record<number, any> = {
@@ -26,12 +26,16 @@ const manhwaData: Record<number, any> = {
     ],
   },
   // Add more manhwa data as needed
-}
+};
 
-export default async function ManhwaDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = await params
-  const manhwaId = Number.parseInt(resolvedParams.id)
-  const manhwa = manhwaData[manhwaId] || manhwaData[1] // Fallback a Solo Leveling
+export default async function ManhwaDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params;
+  const manhwaId = Number.parseInt(resolvedParams.id);
+  const manhwa = manhwaData[manhwaId] || manhwaData[1]; // Fallback a Solo Leveling
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -41,7 +45,10 @@ export default async function ManhwaDetailPage({ params }: { params: Promise<{ i
         <div className="flex-1">
           {/* Breadcrumb */}
           <div className="mb-6 text-sm text-muted-foreground">
-            <Link href="/catalog" className="hover:text-primary transition-colors">
+            <Link
+              href="/catalog"
+              className="hover:text-primary transition-colors"
+            >
               Colección Manhwas
             </Link>
             <span className="mx-2">/</span>
@@ -57,5 +64,5 @@ export default async function ManhwaDetailPage({ params }: { params: Promise<{ i
 
       <Footer />
     </div>
-  )
+  );
 }

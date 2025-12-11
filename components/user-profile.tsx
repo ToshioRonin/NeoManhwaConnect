@@ -1,11 +1,19 @@
-"use client"
+"use client";
 
-import { MapPin, Calendar, LinkIcon, Heart, MessageCircle, BarChart3, TrendingUp } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import {
+  MapPin,
+  Calendar,
+  LinkIcon,
+  Heart,
+  MessageCircle,
+  BarChart3,
+  TrendingUp,
+} from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const userPosts = [
   {
@@ -32,7 +40,7 @@ const userPosts = [
     comments: 78,
     time: "5d",
   },
-]
+];
 
 export function UserProfile() {
   return (
@@ -47,22 +55,29 @@ export function UserProfile() {
             <div className="relative mb-16">
               <Avatar className="w-32 h-32 absolute -top-16 border-4 border-background ring-2 ring-primary">
                 <AvatarImage src="/abstract-geometric-shapes.png" />
-                <AvatarFallback className="bg-muted text-muted-foreground text-3xl">MR</AvatarFallback>
+                <AvatarFallback className="bg-muted text-muted-foreground text-3xl">
+                  MR
+                </AvatarFallback>
               </Avatar>
 
               <div className="flex justify-end pt-4">
-                <Button className="bg-primary text-primary-foreground hover:bg-[#9D77FF]">Editar Perfil</Button>
+                <Button className="bg-primary text-primary-foreground hover:bg-[#9D77FF]">
+                  Editar Perfil
+                </Button>
               </div>
             </div>
 
             <div className="space-y-3 mb-6">
               <div>
-                <h1 className="text-2xl font-bold text-foreground">María Rodríguez</h1>
+                <h1 className="text-2xl font-bold text-foreground">
+                  María Rodríguez
+                </h1>
                 <p className="text-muted-foreground">@mariarodriguez</p>
               </div>
 
               <p className="text-foreground leading-relaxed">
-                Amante de los manhwas y el webtoon. Siempre buscando la próxima gran historia para leer. 📚✨
+                Amante de los manhwas y el webtoon. Siempre buscando la próxima
+                gran historia para leer. 📚✨
               </p>
 
               <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -129,18 +144,28 @@ export function UserProfile() {
                     <div className="flex items-start gap-3 mb-3">
                       <Avatar className="w-10 h-10">
                         <AvatarImage src="/abstract-geometric-shapes.png" />
-                        <AvatarFallback className="bg-muted text-muted-foreground">MR</AvatarFallback>
+                        <AvatarFallback className="bg-muted text-muted-foreground">
+                          MR
+                        </AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <p className="font-semibold text-sm text-foreground">María Rodríguez</p>
-                          <span className="text-muted-foreground text-xs">· {post.time}</span>
+                          <p className="font-semibold text-sm text-foreground">
+                            María Rodríguez
+                          </p>
+                          <span className="text-muted-foreground text-xs">
+                            · {post.time}
+                          </span>
                         </div>
-                        <p className="text-xs text-muted-foreground">@mariarodriguez</p>
+                        <p className="text-xs text-muted-foreground">
+                          @mariarodriguez
+                        </p>
                       </div>
                     </div>
 
-                    <p className="text-foreground mb-3 leading-relaxed">{post.content}</p>
+                    <p className="text-foreground mb-3 leading-relaxed">
+                      {post.content}
+                    </p>
 
                     <div className="flex items-center gap-6 text-muted-foreground">
                       <button className="flex items-center gap-2 hover:text-primary transition-colors">
@@ -177,9 +202,15 @@ export function UserProfile() {
                         <BarChart3 className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-foreground mb-1">Manhwas Leídos</h3>
-                        <p className="text-3xl font-bold text-primary mb-2">156</p>
-                        <p className="text-sm text-muted-foreground">Total de manhwas completados</p>
+                        <h3 className="font-semibold text-foreground mb-1">
+                          Manhwas Leídos
+                        </h3>
+                        <p className="text-3xl font-bold text-primary mb-2">
+                          156
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Total de manhwas completados
+                        </p>
                       </div>
                     </div>
                   </Card>
@@ -190,10 +221,17 @@ export function UserProfile() {
                         <TrendingUp className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-foreground mb-1">Capítulos Esta Semana</h3>
-                        <p className="text-3xl font-bold text-primary mb-2">47</p>
+                        <h3 className="font-semibold text-foreground mb-1">
+                          Capítulos Esta Semana
+                        </h3>
+                        <p className="text-3xl font-bold text-primary mb-2">
+                          47
+                        </p>
                         <p className="text-sm text-muted-foreground">
-                          <span className="text-green-500 font-medium">+12%</span> más que la semana pasada
+                          <span className="text-green-500 font-medium">
+                            +12%
+                          </span>{" "}
+                          más que la semana pasada
                         </p>
                       </div>
                     </div>
@@ -205,11 +243,19 @@ export function UserProfile() {
                         <Heart className="w-6 h-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-foreground mb-1">Géneros Favoritos</h3>
+                        <h3 className="font-semibold text-foreground mb-1">
+                          Géneros Favoritos
+                        </h3>
                         <div className="flex flex-wrap gap-2 mt-3">
-                          <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Acción</span>
-                          <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Fantasía</span>
-                          <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Drama</span>
+                          <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">
+                            Acción
+                          </span>
+                          <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">
+                            Fantasía
+                          </span>
+                          <span className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">
+                            Drama
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -221,5 +267,5 @@ export function UserProfile() {
         </div>
       </ScrollArea>
     </div>
-  )
+  );
 }

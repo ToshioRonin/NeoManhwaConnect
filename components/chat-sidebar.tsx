@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { MessageCircle } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { MessageCircle } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const chats = [
   {
@@ -45,7 +45,7 @@ const chats = [
     time: "5h",
     unread: 0,
   },
-]
+];
 
 export function ChatSidebar() {
   return (
@@ -66,17 +66,28 @@ export function ChatSidebar() {
                 className="w-full p-3 rounded-lg hover:bg-secondary transition-colors text-left flex items-start gap-3 group"
               >
                 <Avatar className="w-10 h-10 ring-2 ring-transparent group-hover:ring-primary transition-all">
-                  <AvatarImage src={chat.avatar || "/placeholder.svg"} alt={chat.name} />
-                  <AvatarFallback className="bg-muted text-muted-foreground">{chat.name[0]}</AvatarFallback>
+                  <AvatarImage
+                    src={chat.avatar || "/placeholder.svg"}
+                    alt={chat.name}
+                  />
+                  <AvatarFallback className="bg-muted text-muted-foreground">
+                    {chat.name[0]}
+                  </AvatarFallback>
                 </Avatar>
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="font-medium text-sm text-foreground truncate">{chat.name}</span>
-                    <span className="text-xs text-muted-foreground">{chat.time}</span>
+                    <span className="font-medium text-sm text-foreground truncate">
+                      {chat.name}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {chat.time}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <p className="text-sm text-muted-foreground truncate">{chat.lastMessage}</p>
+                    <p className="text-sm text-muted-foreground truncate">
+                      {chat.lastMessage}
+                    </p>
                     {chat.unread > 0 && (
                       <span className="flex-shrink-0 ml-2 w-5 h-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
                         {chat.unread}
@@ -90,5 +101,5 @@ export function ChatSidebar() {
         </ScrollArea>
       </div>
     </aside>
-  )
+  );
 }

@@ -1,17 +1,15 @@
 import { Header } from "@/components/header";
 import { ChatSidebar } from "@/components/chat-sidebar";
-import { Feed } from "@/components/feed";
-import { AuthorRecommendations } from "@/components/author-recommendations";
+import { UserProfile } from "@/components/user-profile";
 import { Footer } from "@/components/footer";
 
-export default function HomePage() {
+export default function ProfilePage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-1 flex">
         <ChatSidebar />
-        <Feed />
-        <AuthorRecommendations />
+        <UserProfile />
       </main>
       <Footer />
     </div>
