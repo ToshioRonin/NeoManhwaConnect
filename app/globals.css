@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: var(--font-inter), system-ui, sans-serif;
+    --font-mono: var(--font-jetbrains-mono), monospace;
+  }
+}
+
+:root {
+  --background: #0e0e0f;
+  --foreground: #e6e6e6;
+  --card: #1a1a1c;
+  --card-foreground: #e6e6e6;
+  --popover: #1a1a1c;
+  --popover-foreground: #e6e6e6;
+  --primary: #7c4dff;
+  --primary-foreground: #e6e6e6;
+  --secondary: #2e2a38;
+  --secondary-foreground: #e6e6e6;
+  --muted: #3a3f5a;
+  --muted-foreground: #a8a8a8;
+  --accent: #7c4dff;
+  --accent-foreground: #e6e6e6;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #e6e6e6;
+  --border: #2e2a38;
+  --input: #1a1a1c;
+  --ring: #7c4dff;
+  --chart-1: #7c4dff;
+  --chart-2: #9d77ff;
+  --chart-3: #5e36cc;
+  --chart-4: #3a3f5a;
+  --chart-5: #2e2a38;
+  --radius: 0.5rem;
+  --sidebar: #1a1a1c;
+  --sidebar-foreground: #e6e6e6;
+  --sidebar-primary: #7c4dff;
+  --sidebar-primary-foreground: #e6e6e6;
+  --sidebar-accent: #2e2a38;
+  --sidebar-accent-foreground: #e6e6e6;
+  --sidebar-border: #2e2a38;
+  --sidebar-ring: #7c4dff;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
