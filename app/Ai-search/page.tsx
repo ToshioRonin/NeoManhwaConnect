@@ -4,7 +4,6 @@ import type React from "react";
 
 import { useState } from "react";
 import { Header } from "@/components/header";
-import { ChatSidebar } from "@/components/chat-sidebar";
 import { Footer } from "@/components/footer";
 import { Search, Upload, Sparkles, ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,6 +13,8 @@ import { Card } from "@/components/ui/card";
 export default function AISearchPage() {
   const [query, setQuery] = useState("");
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
+  const [isDraggingOverTextarea, setIsDraggingOverTextarea] = useState(false);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -23,6 +24,37 @@ export default function AISearchPage() {
         setUploadedImage(reader.result as string);
       };
       reader.readAsDataURL(file);
+      setUploadedFileName(file.name);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDraggingOverTextarea(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (e.currentTarget.contains(e.relatedTarget as Node)) {
+      setIsDraggingOverTextarea(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDraggingOverTextarea(false);
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUploadedImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+      setUploadedFileName(file.name);
     }
   };
 
@@ -50,7 +82,21 @@ export default function AISearchPage() {
 
           <Card className="p-6 bg-card border-border mb-6">
             <div className="space-y-4">
-              <div className="relative">
+              <div
+                className="relative"
+                onDragOver={handleDragOver}
+                onDrop={handleDrop}
+                onDragEnter={handleDragEnter}
+                onDragLeave={handleDragLeave}
+              >
+                {isDraggingOverTextarea && (
+                  <div className="absolute inset-0 bg-primary/20 border-2 border-dashed border-primary rounded-lg flex items-center justify-center pointer-events-none">
+                    <p className="text-primary font-semibold">
+                      Suelta la imagen aquí para subirla
+                    </p>
+                  </div>
+                )}
+
                 <Textarea
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
@@ -59,22 +105,25 @@ export default function AISearchPage() {
                 />
               </div>
 
-              {uploadedImage && (
-                <div className="relative w-full h-48 rounded-lg overflow-hidden border border-border">
-                  <img
-                    src={uploadedImage || "/placeholder.svg"}
-                    alt="Uploaded"
-                    className="w-full h-full object-cover"
-                  />
+              {uploadedImage && uploadedFileName && (
+                <Card className="p-4 border-l-4 border-primary bg-secondary/50 flex items-center justify-between">
+                  <div className="flex items-center gap-2 truncate">
+                    <ImageIcon className="w-5 h-5 text-primary" />
+                    <span className="font-medium text-foreground truncate">
+                      Archivo cargado: {uploadedFileName}
+                    </span>
+                  </div>
                   <Button
                     size="sm"
                     variant="destructive"
-                    className="absolute top-2 right-2"
-                    onClick={() => setUploadedImage(null)}
+                    onClick={() => {
+                      setUploadedImage(null);
+                      setUploadedFileName(null);
+                    }}
                   >
                     Eliminar
                   </Button>
-                </div>
+                </Card>
               )}
 
               <div className="flex items-center gap-3">
@@ -168,8 +217,6 @@ export default function AISearchPage() {
             </div>
           </Card>
         </div>
-
-        <ChatSidebar />
       </main>
 
       <Footer />
