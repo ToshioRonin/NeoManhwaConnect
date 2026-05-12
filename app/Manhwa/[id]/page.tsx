@@ -1,10 +1,7 @@
 import Link from "next/link";
-import { Header } from "@/components/header";
 import { ChatSidebar } from "@/components/chat-sidebar";
-import { Footer } from "@/components/footer";
 import { ManhwaDetail } from "@/components/manhwa-detail";
 
-// Mock data para los manhwas
 const manhwaData: Record<number, any> = {
   1: {
     id: 1,
@@ -25,8 +22,15 @@ const manhwaData: Record<number, any> = {
       { number: 175, title: "El Regreso del Rey", date: "2024-12-10" },
     ],
   },
-  // Add more manhwa data as needed
 };
+
+export function generateStaticParams() {
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
+}
 
 export default async function ManhwaDetailPage({
   params,
@@ -35,34 +39,25 @@ export default async function ManhwaDetailPage({
 }) {
   const resolvedParams = await params;
   const manhwaId = Number.parseInt(resolvedParams.id);
-  const manhwa = manhwaData[manhwaId] || manhwaData[1]; // Fallback a Solo Leveling
+  const manhwa = manhwaData[manhwaId] || manhwaData[1];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Header />
-
-      <main className="flex-1 flex container mx-auto px-4 py-8 gap-6">
+    <main className="flex-1 container mx-auto px-4 py-8">
+      <div className="flex gap-6">
         <div className="flex-1">
-          {/* Breadcrumb */}
           <div className="mb-6 text-sm text-muted-foreground">
-            <Link
-              href="/catalog"
-              className="hover:text-primary transition-colors"
-            >
+            <Link href="/catalog" className="hover:text-primary transition-colors">
               Colección Manhwas
             </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">{manhwa.title}</span>
           </div>
 
-          {/* Main Content */}
           <ManhwaDetail manhwa={manhwa} />
         </div>
 
         <ChatSidebar />
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </main>
   );
 }

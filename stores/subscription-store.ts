@@ -138,5 +138,6 @@ export const hasPremiumAccess = (subscription: Subscription | null): boolean => 
 };
 
 export const hasProAccess = (subscription: Subscription | null): boolean => {
-  return subscription?.isActive && subscription.plan.type === 'PRO';
+  if (!subscription) return false;
+  return subscription.isActive && subscription.plan.type === 'PRO';
 };
